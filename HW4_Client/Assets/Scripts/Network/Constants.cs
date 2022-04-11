@@ -22,4 +22,6 @@ public class Constants
 
 	public static int USER_ID = -1;
 	public static int OP_ID = -1;
+	public static int OP2_ID = -1;
+
 }

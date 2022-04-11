@@ -40,7 +40,7 @@ public class GameServer {
     private Map<String, GameClient> activeThreads = new HashMap<String, GameClient>(); // Session ID -> Client
     private Map<Integer, Player> activePlayers = new HashMap<Integer, Player>(); // Player ID -> Player
 
-    private boolean[] occupied = new boolean[2]; 
+    private boolean[] occupied = new boolean[3];
     /**
      * Create the GameServer by setting up the request types and creating a
      * connection with the database.
@@ -174,12 +174,12 @@ public class GameServer {
     public int getID() {
         int id = 0;
         int i = 0;
-        for(i = 0; i < 2; i++) {
+        for(i = 0; i < 3; i++) {
             if(!occupied[i]) {
                 id = i + 1; break;
             }
         }
-        if(i != 2) {
+        if(i != 3) {
             occupied[i] = true;
             return id;
         } else

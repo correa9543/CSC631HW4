@@ -52,6 +52,7 @@ public class ResponseJoin : NetworkResponse
 			args.op_id = op_id;
 			args.op_name = op_name;
 			args.op_ready = op_ready;
+			
 		}
 
 		return args;

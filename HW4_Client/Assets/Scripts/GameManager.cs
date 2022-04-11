@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	public Player[] Players = new Player[2];
+	//Change the lenght of array to 3
+	public Player[] Players = new Player[3];
 	public GameObject HeroPrefab;
 
 	private Hero[,] gameBoard = new Hero[6,5];
@@ -31,12 +32,16 @@ public class GameManager : MonoBehaviour
 		return Players[currentPlayer - 1];
 	}
 
-	public void Init(Player player1, Player player2)
+	//Add a player 3 here
+	public void Init(Player player1, Player player2, Player player3)
 	{
 		Players[0] = player1;
 		Players[1] = player2;
+		Players[2] = player3;
 		currentPlayer = 1;
-		useNetwork = (!player1.IsMouseControlled || !player2.IsMouseControlled);
+
+		//Add player 3 into the parenthesis as well
+		useNetwork = (!player1.IsMouseControlled || !player2.IsMouseControlled || !player3.IsMouseControlled);
 	}
 
 	public void CreateHeroes()
@@ -114,6 +119,8 @@ public class GameManager : MonoBehaviour
 	{
 		ObjectSelector.SetSelectedObject(null);
 		canInteract = false;
+
+		//maybe change it to 4 - current player?
 		currentPlayer = 3 - currentPlayer;
 	}
 
